@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'hometab.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
 
 TextEditingController _user = new TextEditingController();
 TextEditingController _password = new TextEditingController();
-
+//LOGIN
 class LoadingScreen extends StatelessWidget {
   const LoadingScreen({Key? key}) : super(key: key);
   @override
@@ -112,6 +112,18 @@ class LoadingScreen extends StatelessWidget {
                           ),
                         );
                       });
+                }
+                else if (_user.text !=  _password.text) {
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          content: Text(
+                            "User và Password khác nhau",
+                            style: TextStyle(fontFamily: "RobotoMono"),
+                          ),
+                        );
+                      });
                 } else if (_user.text == _password.text) {
                   showDialog(
                       context: context,
@@ -134,41 +146,18 @@ class LoadingScreen extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+// class MyHome extends StatefulWidget {
+//   const MyHome({Key? key}) : super(key: key);
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: DefaultTabController(
-        length: 4,
-        child: Scaffold(
-          appBar: AppBar(
-            bottom: const TabBar(
-              tabs: [
-                Tab(icon: Icon(Icons.home)),
-                Tab(icon: Icon(Icons.people_alt_outlined)),
-                Tab(icon: Icon(Icons.notification_add_outlined)),
-                Tab(icon: Icon(Icons.menu)),
-              ],
-            ),
-            title: const Text('Home',style: TextStyle(fontFamily:"RobotoMono" ),),
-          ),
-          body: const TabBarView(
-            children: [
-              Icon(Icons.home),
-              Icon(Icons.people_alt_outlined),
-              Icon(Icons.notification_add_outlined),
-              Icon(Icons.menu),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   State<MyHome> createState() => _MyHomeState();
+// }
+// class _MyHomeState extends State<MyHome> {
+//   @override
+//   Widget build(BuildContext context)
+//   {
+//       return MaterialApp(
+//         home: Scaffold(backgroundColor:Colors.blue,),
+//       );
+//   }
+// }
