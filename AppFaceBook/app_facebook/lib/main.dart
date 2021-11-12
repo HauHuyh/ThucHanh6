@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'hometab.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -12,13 +13,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: const LoadingScreen(),
+      home: const HomePage(),
     );
   }
 }
 
 TextEditingController _user = new TextEditingController();
 TextEditingController _password = new TextEditingController();
+
 //LOGIN
 class LoadingScreen extends StatelessWidget {
   const LoadingScreen({Key? key}) : super(key: key);
@@ -31,7 +33,7 @@ class LoadingScreen extends StatelessWidget {
           style: TextStyle(fontFamily: "RobotoMono"),
         ),
       ),
-      backgroundColor: Colors.cyan,
+      backgroundColor: Colors.blue.shade300,
       body: Center(
           child: Column(
         children: [
@@ -45,9 +47,9 @@ class LoadingScreen extends StatelessWidget {
                 onPressed: () {},
                 color: Colors.white,
                 child: Icon(
-                  Icons.lock_outline,
-                  size: 70,
-                  color: Colors.lightBlue.shade200,
+                  Icons.facebook,
+                  size: 135,
+                  color: Colors.blue,
                 ),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(60.0)),
@@ -95,7 +97,7 @@ class LoadingScreen extends StatelessWidget {
             margin: EdgeInsets.only(top: 100),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: Colors.black, // background
+                primary: Colors.blueAccent, // background
               ),
               child: Text('SIGN IN',
                   style:
@@ -112,8 +114,7 @@ class LoadingScreen extends StatelessWidget {
                           ),
                         );
                       });
-                }
-                else if (_user.text !=  _password.text) {
+                } else if (_user.text != _password.text) {
                   showDialog(
                       context: context,
                       builder: (context) {
@@ -133,7 +134,7 @@ class LoadingScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MyHomePage(),
+                      builder: (context) => HomePage(),
                     ),
                   );
                 }

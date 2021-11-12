@@ -1,12 +1,42 @@
 import 'package:flutter/material.dart';
+
 //TAB HOME
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
-class _MyHomePageState extends State<MyHomePage> {
+
+class _HomePageState extends State<HomePage> {
+  Widget _home = Container(
+    child: ListView(
+      children: [
+        Container(
+          child: Row(
+            children: [
+              IconButton(onPressed: () {}, icon: Icon(Icons.circle_outlined)),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: "Bạn đang nghĩ gì",
+                ),
+              )
+            ],
+          ),
+        ),
+        Container(
+          width: 300,
+          height: 550,
+          color: Colors.amber,
+          child: Column(
+            children: [],
+          ),
+        ),
+        Text("data1"),
+      ],
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,11 +52,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 Tab(icon: Icon(Icons.menu)),
               ],
             ),
-            title: const Text('Home',style: TextStyle(fontFamily:"RobotoMono" ),),
+            title: const Text(
+              'Home',
+              style: TextStyle(fontFamily: "RobotoMono"),
+            ),
           ),
-          body:  TabBarView(
+          body: TabBarView(
             children: [
-              Icon(Icons.home),
+              _home,
               Icon(Icons.people_alt_outlined),
               Icon(Icons.notification_add_outlined),
               Icon(Icons.menu),
