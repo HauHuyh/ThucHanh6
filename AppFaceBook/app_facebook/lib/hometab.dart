@@ -217,7 +217,7 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
-         Row(
+        Row(
           children: [
             Container(
               margin: EdgeInsets.only(top: 15, left: 15),
@@ -421,6 +421,135 @@ class _HomePageState extends State<HomePage> {
       ],
     ),
   );
+  Widget _announcement = Container(
+    child: ListView(
+      children: [
+        Row(
+          children: [
+            Container(
+              child: Text(
+                '   Thông báo',
+                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 180),
+              width: 20,
+              height: 20,
+              child: FlatButton(
+                onPressed: () {},
+                color: Colors.white,
+                child: Icon(
+                  Icons.search,
+                  size: 30,
+                  color: Colors.blue,
+                ),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(60.0)),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 15,
+        ),
+        Text(
+          'Mới',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        OutlinedButton(
+          onPressed: () {},
+          child: Row(
+            children: [
+              Container(
+                child: CircleAvatar(
+                  radius: 25.0,
+                  // backgroundColor: Colors.grey[200],
+                  backgroundImage: AssetImage(
+                    'images/atn1.jpg',
+                  ),
+                ),
+              ),
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        //tab 3 lần
+                        '     Hậu Huỳnh',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                      Text(
+                        ' đã đăng 197 ảnh.',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 20, right: 171),
+                    child: Text(
+                      'T.4 lúc 10:39',
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 1,
+              ),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        OutlinedButton(
+          onPressed: () {},
+          child: Row(
+            children: [
+              Container(
+                child: CircleAvatar(
+                  radius: 25.0,
+                  // backgroundColor: Colors.grey[200],
+                  backgroundImage: AssetImage(
+                    'images/atn1.jpg',
+                  ),
+                ),
+              ),
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        //tab 3 lần
+                        '     Hậu Huỳnh',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                      Text(
+                        ' đã đăng 197 ảnh.',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 20, right: 171),
+                    child: Text(
+                      'T.4 lúc 10:39',
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 1,
+              ),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -445,7 +574,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               Icon(Icons.home),
               _friend,
-              Icon(Icons.notification_add_outlined),
+              _announcement,
               Icon(Icons.menu),
             ],
           ),
