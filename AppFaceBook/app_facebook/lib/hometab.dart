@@ -12,17 +12,24 @@ class _HomePageState extends State<HomePage> {
   Widget _home = Container(
     child: ListView(
       children: [
-        Container(
-          child: Row(
-            children: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.circle_outlined)),
-              TextField(
-                decoration: InputDecoration(
-                  hintText: "Bạn đang nghĩ gì",
-                ),
-              )
-            ],
-          ),
+        Row(
+          children: [
+            IconButton(onPressed: () {}, icon: Icon(Icons.circle_outlined)),
+            Container(
+              width: 200,
+              child: TextField(
+                decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    suffixIcon: Icon(
+                      Icons.people_alt_outlined,
+                    ),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white)),
+                    hintText: 'User'),
+              ),
+            )
+          ],
         ),
         Container(
           width: 300,
